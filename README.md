@@ -3,7 +3,7 @@ insulatejs
 
 Library to create constants in and immutable objects, members and methods in javascript
 
-	insulate.js v0.1
+	insulatejs v0.1
 	created by Alex Becker
 	byaxy@insulatejs.com
 	insulate.js is a library to create indestructible and unchangeable objects, members and methods in ecma5 javascript (all modern browsers and ie9 and up).
