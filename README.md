@@ -24,7 +24,7 @@ To create a global constant:
 	insulate.createConstant("MYCONST", "hello world")
 	If you choose not to pass the second argument, you can set the constant later.
 	example
-	insulate.createConstant("MYCONST"); MYCONST = h"ello world".
+	insulate.createConstant("MYCONST"); MYCONST = "hello world".
 
 To create immutable objects:
 	
