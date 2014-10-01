@@ -1,7 +1,7 @@
 insulatejs
 ==========
 
-Library to create constants in and mutable objects, members and methods in javascript
+Library to create constants in and immutable objects, members and methods in javascript
 
 	insulate.js v0.1
 	created by Alex Becker
@@ -24,9 +24,9 @@ To create a global constant:
 	insulate.createConstant("MYCONST", "hello world")
 	If you choose not to pass the second argument, you can set the constant later.
 	example
-	insulate.createConstant("MYCONST"); MYCONST = "hello world".
+	insulate.createConstant("MYCONST"); MYCONST = h"ello world".
 
-To create imuttable objects:
+To create immutable objects:
 	
 	insulate.createObject() will create an object in global space or in any context if supplied
 	needs a name and optianoly context (an object). All members and methods of this the top level object will be immutable, as long as you create eaxh of them with insulate lybrary. 
@@ -37,7 +37,7 @@ To create imuttable objects:
 	Creating nested objects with insulate library will insure imutabylity
 	insulate.createObject("myObjInner", myObj) will create a myObjInner object as a myObj member. Can also be done with insulate.createMember.
 	
-To create imuttable members:
+To create immutable members:
 	insulate.createMethod() will create a immutable  method (if created in an object made with insulate utility) 
 	needs a name, object and an optional function.
 	nested objects can be passed with dotted notaition - obj1.obj2.obj3 or as a named refference
