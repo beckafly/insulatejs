@@ -1,0 +1,23 @@
+{
+  "name": "insulate.js",
+  "version": "0.0.1",
+  "homepage": "http://beckafly.github.io/insulatejs/",
+  "authors": [
+    "Alex Becker <byaxy@insulatejs.com>"
+  ],
+  "description": "Js libary to create constants and immutable objects/methods/members in ecma5",
+  "main": "insulate.js",
+  "keywords": [
+    "Javascipt",
+    "Constant",
+    "Immutable"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
