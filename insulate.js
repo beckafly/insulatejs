@@ -64,7 +64,7 @@
 	        } else if (!constName.match(validName)) {
 	            throw "Name needs to be a valid javascript name";
 	        } else {
-	            createImtble();
+	            createImtble(constName);
 	            if (contents) {
 	            window[constName] = contents;
 	        	}
@@ -154,6 +154,8 @@
 
 	        if (typeof memberName !== "string") {
 	            throw "First argument needs to be member name"
+	        } else if (typeof objName !== "object") {
+	            throw "Second argument needs to be an object";
 	        } else if (!memberName.match(validName)) {
 	            throw "Name needs to be a valid javascript name";
 	        } else if (typeof contents === "function") {
