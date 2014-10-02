@@ -20,7 +20,7 @@
 	 
 
 	    // main function creates objects
-	    function createImtble(objName, context) {
+	    function createImtble(name, context) {
 	    	var cnt;
 	        if (typeof context === "undefined") {
 	            cnt = window;
@@ -29,17 +29,17 @@
 	        }
 
 	        var localMYOBJ;
-	        Object.defineProperty(cnt, objName, {
+	        Object.defineProperty(cnt, name, {
 	            get: function() {
 	                return localMYOBJ;
 	            },
 	            set: function(val) {
-	                if (cnt[objName] && cnt[objName] != val) {
+	                if (cnt[name] && cnt[name] != val) {
 	                    throw "You can not redifine this object";
-	                } else if (cnt[objName] && cnt[objName] == val) {
+	                } else if (cnt[name] && cnt[name] == val) {
 	                    throw "This object has already been defined";
 	                }
-	                localMYOBJ = cnt[objName] || val; 
+	                localMYOBJ = cnt[name] || val; 
 
 	            }
 	        });
@@ -57,16 +57,16 @@
 		insulate.createConstant("MYCONST"); MYCONST = "hello world".
 		***************/
 	    
-	    cf.createConstant = function(constName, contents) {
+	    cf.createConstant = function(name, contents) {
 
-	        if (typeof constName !== "string") {
+	        if (typeof name !== "string") {
 	            throw "First argument needs to be constant name";
-	        } else if (!constName.match(validName)) {
+	        } else if (!name.match(validName)) {
 	            throw "Name needs to be a valid javascript name";
 	        } else {
-	            createImtble(constName);
+	            createImtble(name);
 	            if (contents) {
-	            window[constName] = contents;
+	            window[name] = contents;
 	        	}
 	        }
 
@@ -83,16 +83,16 @@
 		insulate.createObject("myObjInner", myObj) will create a myObjInner object as a myObj member. Can also be done with insulate.createMember.
 		**************/
 
-	    cf.createObject = function(objName, context) {
+	    cf.createObject = function(name, context) {
 	        //console.log(context);
 	        context = context || window;
-	        if (typeof objName !== "string") {
+	        if (typeof name !== "string") {
 	            throw "First argument needs to be object name";
-	        } else if (!objName.match(validName)) {
+	        } else if (!name.match(validName)) {
 	            throw "Name needs to be a valid javascript name";
 	        } else {
-	            createImtble(objName, context);
-	            context[objName] = {};
+	            createImtble(name, context);
+	            context[name] = {};
 	        }
 	    };
 
@@ -115,20 +115,20 @@
 		myObj.hello = function(){console.log("hello world")}
 	    ************/
 
-	    cf.createMethod = function(methodName, objName, methodFunc) {
+	    cf.createMethod = function(name, context, contents) {
 
-	        if (typeof objName !== "object") {
+	        if (typeof context !== "object") {
 	            throw "Second argument needs to be an object";
-	        } else if (methodFunc && typeof methodFunc !== "function") {
+	        } else if (contents && typeof contents !== "function") {
 	            throw "Third argument needs to be a function";
-	        } else if (typeof methodName !== "string") {
+	        } else if (typeof name !== "string") {
 	            throw "First argument needs to be Method name";
-	        } else if (!methodName.match(validName)) {
+	        } else if (!name.match(validName)) {
 	            throw "Name needs to be a valid javascript name";
 	        } else {
-	            createImtble(methodName, objName);
-	            if(methodFunc){
-	            	objName[methodName] = methodFunc;
+	            createImtble(name, context);
+	            if(contents){
+	            	context[name] = contents;
 	            }
 	        }
 	    };
@@ -150,20 +150,20 @@
 		myObj.lirics = "lorem ipsum something, something";
 		*************/
 
-	    cf.createMember = function(memberName, objName, contents) {
+	    cf.createMember = function(name, context, contents) {
 
-	        if (typeof memberName !== "string") {
+	        if (typeof name !== "string") {
 	            throw "First argument needs to be member name";
-	        } else if (typeof objName !== "object") {
+	        } else if (typeof context !== "object") {
 	            throw "Second argument needs to be an object";
-	        } else if (!memberName.match(validName)) {
+	        } else if (!name.match(validName)) {
 	            throw "Name needs to be a valid javascript name";
 	        } else if (typeof contents === "function") {
 	            throw "Member can not be a function";
 	        } else {
-	            createImtble(memberName, objName);
+	            createImtble(name, context);
 	            if (contents){
-	            objName[memberName] = contents;
+	            context[name] = contents;
 	        	}
 	        }
 
