@@ -33,14 +33,8 @@
 	            get: function() {
 	                return localMYOBJ;
 	            },
-	            set: function(val) {
-	                if (cnt[name] && cnt[name] != val) {
-	                    throw "You can not redifine this object";
-	                } else if (cnt[name] && cnt[name] == val) {
-	                    throw "This object has already been defined";
-	                }
+	            set: function(val) { 
 	                localMYOBJ = cnt[name] || val; 
-
 	            }
 	        });
 	    }
