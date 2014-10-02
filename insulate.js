@@ -34,6 +34,9 @@
 	                return localMYOBJ;
 	            },
 	            set: function(val) { 
+	            	if (cnt[name]){
+	            		throw "this object, member or property is already defined";
+	            	}
 	                localMYOBJ = cnt[name] || val; 
 	            }
 	        });
