@@ -1,40 +1,40 @@
 <!DOCTYPE html>
 <html>
+
   <head>
     <meta charset='utf-8'>
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="description" content="Insulatejs : Library to create constants in and immutable objects, members and methods in javascript">
 
-    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
-    <link rel="stylesheet" type="text/css" href="stylesheets/pygment_trac.css" media="screen">
-    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print">
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
 
-    <title>Insulatejs by beckafly</title>
+    <title>Insulatejs</title>
   </head>
 
   <body>
 
-    <header>
-      <div class="container">
-        <h1>Insulatejs</h1>
-        <h2>Library to create constants in and immutable objects, members and methods in javascript</h2>
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/beckafly/insulatejs">View on GitHub</a>
 
-        <section id="downloads">
-          <a href="https://github.com/beckafly/insulatejs/zipball/master" class="btn">Download as .zip</a>
-          <a href="https://github.com/beckafly/insulatejs/tarball/master" class="btn">Download as .tar.gz</a>
-          <a href="https://github.com/beckafly/insulatejs" class="btn btn-github"><span class="icon"></span>View on GitHub</a>
-        </section>
-      </div>
-    </header>
+          <h1 id="project_title">Insulatejs</h1>
+          <h2 id="project_tagline">Library to create constants in and immutable objects, members and methods in javascript</h2>
 
-    <div class="container">
-      <section id="main_content">
+            <section id="downloads">
+              <a class="zip_download_link" href="https://github.com/beckafly/insulatejs/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/beckafly/insulatejs/tarball/master">Download this project as a tar.gz file</a>
+            </section>
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
         <h1>
 <a name="insulatejs" class="anchor" href="#insulatejs"><span class="octicon octicon-link"></span></a>insulatejs</h1>
 
-<h3>
-<a name="bower-install-insulatejs" class="anchor" href="#bower-install-insulatejs"><span class="octicon octicon-link"></span></a>bower install insulatejs</h3>
-
-<p>Library to create constants and immutable objects, members and methods in javascript (ecma5)</p>
+<p>Library to create constants in and immutable objects, members and methods in javascript</p>
 
 <pre><code>insulatejs v0.1
 created by Alex Becker
@@ -58,7 +58,7 @@ example
 insulate.createConstant("MYCONST", "hello world")
 If you choose not to pass the second argument, you can set the constant later.
 example
-insulate.createConstant("MYCONST"); MYCONST = h"ello world".
+insulate.createConstant("MYCONST"); MYCONST = "hello world".
 </code></pre>
 
 <p>To create immutable objects:</p>
@@ -73,12 +73,14 @@ Creating nested objects with insulate library will insure imutabylity
 insulate.createObject("myObjInner", myObj) will create a myObjInner object as a myObj member. Can also be done with insulate.createMember.
 </code></pre>
 
-<p>To create immutable members:
-    insulate.createMethod() will create a immutable  method (if created in an object made with insulate utility) 
-    needs a name, object and an optional function.
-    nested objects can be passed with dotted notaition - obj1.obj2.obj3 or as a named refference</p>
+<p>To create immutable members:</p>
 
-<pre><code>example
+<pre><code>insulate.createMethod() will create a immutable  method (if created in an object made with insulate utility) 
+needs a name, object and an optional function.
+nested objects can be passed with dotted notaition - obj1.obj2.obj3 or as a named refference
+
+
+example
 insulate.createObject("myObj"); 
 insulate.createMethod("hello", myObj, function(){console.log("hello world")})
 
@@ -107,6 +109,14 @@ myObj.lirics = "lorem ipsum something, something";
       </section>
     </div>
 
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">Insulatejs maintained by <a href="https://github.com/beckafly">beckafly</a></p>
+        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+
               <script type="text/javascript">
             var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
             document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
@@ -117,6 +127,7 @@ myObj.lirics = "lorem ipsum something, something";
             pageTracker._trackPageview();
             } catch(err) {}
           </script>
+
 
   </body>
 </html>
