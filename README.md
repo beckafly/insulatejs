@@ -38,6 +38,7 @@ To create immutable objects:
 	insulate.createObject("myObjInner", myObj) will create a myObjInner object as a myObj member. Can also be done with insulate.createMember.
 	
 To create immutable members:
+
 	insulate.createMethod() will create a immutable  method (if created in an object made with insulate utility) 
 	needs a name, object and an optional function.
 	nested objects can be passed with dotted notaition - obj1.obj2.obj3 or as a named refference
