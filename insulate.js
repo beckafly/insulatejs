@@ -35,9 +35,9 @@
 	            },
 	            set: function(val) {
 	                if (cnt[objName] && cnt[objName] != val) {
-	                    throw "You can not redifine this object"
+	                    throw "You can not redifine this object";
 	                } else if (cnt[objName] && cnt[objName] == val) {
-	                    throw "This object has already been defined"
+	                    throw "This object has already been defined";
 	                }
 	                localMYOBJ = cnt[objName] || val; 
 
@@ -60,7 +60,7 @@
 	    cf.createConstant = function(constName, contents) {
 
 	        if (typeof constName !== "string") {
-	            throw "First argument needs to be constant name"
+	            throw "First argument needs to be constant name";
 	        } else if (!constName.match(validName)) {
 	            throw "Name needs to be a valid javascript name";
 	        } else {
@@ -87,7 +87,7 @@
 	        //console.log(context);
 	        context = context || window;
 	        if (typeof objName !== "string") {
-	            throw "First argument needs to be object name"
+	            throw "First argument needs to be object name";
 	        } else if (!objName.match(validName)) {
 	            throw "Name needs to be a valid javascript name";
 	        } else {
@@ -122,7 +122,7 @@
 	        } else if (methodFunc && typeof methodFunc !== "function") {
 	            throw "Third argument needs to be a function";
 	        } else if (typeof methodName !== "string") {
-	            throw "First argument needs to be Method name"
+	            throw "First argument needs to be Method name";
 	        } else if (!methodName.match(validName)) {
 	            throw "Name needs to be a valid javascript name";
 	        } else {
@@ -153,7 +153,7 @@
 	    cf.createMember = function(memberName, objName, contents) {
 
 	        if (typeof memberName !== "string") {
-	            throw "First argument needs to be member name"
+	            throw "First argument needs to be member name";
 	        } else if (typeof objName !== "object") {
 	            throw "Second argument needs to be an object";
 	        } else if (!memberName.match(validName)) {
@@ -171,5 +171,5 @@
 
 
 	    createImtble("insulate", window);
-	    window["insulate"] = cf;
+	    window.insulate = cf;
 	}());
