@@ -35,9 +35,10 @@
 	            },
 	            set: function(val) { 
 	            	if (cnt[name]){
-	            		throw "this object, member or property is already defined";
-	            	}
-	                localMYOBJ = cnt[name] || val; 
+	            		console.warn("this proprty has already been set");
+	            		return null;
+	            	} 
+	               localMYOBJ = val; 
 	            }
 	        });
 	    }
@@ -168,5 +169,17 @@
 
 
 	    createImtble("insulate", window);
-	    window.insulate = cf;
+	    window.insulate = {};
+	    createImtble("createConstant", insulate);
+	    createImtble("createObject", insulate);
+	    createImtble("createMethod", insulate);
+	    createImtble("createMember", insulate);
+
+	    insulate.createConstant = cf.createConstant;
+	    insulate.createObject = cf.createObject;
+	    insulate.createMethod = cf.createMethod;
+	    insulate.createMember = cf.createMember;
+
+
+	    
 	}());
