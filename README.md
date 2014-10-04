@@ -18,8 +18,9 @@ To use, include this script in your page.
 
 To create a global constant:
 
-	insulate.createConstant() will create a constant in a global namespace. Needs a name and optional data to set the constant
+	insulate.createConstant() will create a constant in a global namespace. Needs a name and optional value to set the constant
 	
+
 	example 
 	insulate.createConstant("MYCONST", "hello world")
 	If you choose not to pass the second argument, you can set the constant later.
@@ -29,7 +30,10 @@ To create a global constant:
 	Try to rest it
 	MYCONST = 123;
 	console.log(MYCONST); Still "hello world". 
-
+	
+	IT IS IMPORTANT NOT TO DECLEARE YOUR CONSTANTS BEFORE YOU CREATE THEM WITH INSULATE, IF YOU DO, BEFORE RUNING INSULATE.CREATECONSTANT, IT WILL NOT BE IMMUTABLE!
+	
+	To create a constant in onother scope, use insulate.createMember()
 
 
 To create immutable objects:
@@ -43,7 +47,7 @@ To create immutable objects:
 	Creating nested objects with insulate library will insure imutabylity
 	insulate.createObject("myObjInner", myObj) will create a myObjInner object as a myObj member. Can also be done with insulate.createMember.
 	
-To create immutable members:
+To create immutable methods:
 
 	insulate.createMethod() will create a immutable  method (if created in an object made with insulate utility) 
 	needs a name, object and an optional function.
@@ -61,15 +65,17 @@ To create immutable members:
 	insulate.createMethod("hello", myObj);
 	myObj.hello = function(){console.log("hello world")}	
 
+To create immutable mebmers:
+
 	insulate.createMember() will create an imutable member in an object (created with insulate)
-	needs a name, object and optinal data of any type. 
+	needs a name, object and optinal value. 
 	nested objects can be passed with dotted notaition - obj1.obj2.obj3 or as a named refference
 
 	example 
 	insulate.createObject("myObj");
 	insulate.createMember("lirics", myObj, "lorem ipsum something, something");
 
-	if you choose not to pass any data as  the third argument, you can set the member later
+	if you choose not to pass any value as  the third argument, you can set the member later
 
 	example
 	insulate.createObject("myObj");
