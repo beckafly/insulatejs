@@ -49,19 +49,28 @@ Insulate itself is created to be imitable by using it's createObject method. It 
 
 <p>To create a global constant:</p>
 
-<pre><code>insulate.createConstant() will create a constant in a global namespace. Needs a name and optional data to set the constant
+<pre><code>insulate.createConstant() will create a constant in a global namespace. Needs a name and optional value to set the constant
+
 
 example 
 insulate.createConstant("MYCONST", "hello world")
 If you choose not to pass the second argument, you can set the constant later.
 example
-insulate.createConstant("MYCONST"); MYCONST = "hello world".
+insulate.createConstant("MYCONST"); MYCONST = "hello world";
+Now MYCONST will always return "hello world".
+Try to rest it
+MYCONST = 123;
+console.log(MYCONST); Still "hello world". 
+
+IT IS IMPORTANT NOT TO DECLEARE YOUR CONSTANTS BEFORE YOU CREATE THEM WITH INSULATE, IF YOU DO, BEFORE RUNING  INSULATE.CREATECONSTANT, IT WILL NOT BE IMMUTABLE!
+
+To create a constant in onother scope, use insulate.createMember()
 </code></pre>
 
 <p>To create immutable objects:</p>
 
 <pre><code>insulate.createObject() will create an object in global space or in any context if supplied
-needs a name and optianoly context (an object). All members and methods of this the top level object will be immutable, as long as you create eaxh of them with insulate lybrary. 
+needs a name and optianoly context (an object). All members and methods of this the top level object will be immutable, as long as you create eaxh of them with insulate library. 
 Nested objects can be passed with dotted notaition - obj1.obj2.obj3 or as a named refference.
 
 example 
@@ -70,7 +79,7 @@ Creating nested objects with insulate library will insure imutabylity
 insulate.createObject("myObjInner", myObj) will create a myObjInner object as a myObj member. Can also be done with insulate.createMember.
 </code></pre>
 
-<p>To create immutable members:</p>
+<p>To create immutable methods:</p>
 
 <pre><code>insulate.createMethod() will create a immutable  method (if created in an object made with insulate utility) 
 needs a name, object and an optional function.
@@ -81,22 +90,25 @@ example
 insulate.createObject("myObj"); 
 insulate.createMethod("hello", myObj, function(){console.log("hello world")})
 
-If you choose not to pass a function as the third argument, you can set the method later
+If you choose not to pass a function as the third argument, you can set the method later.
 
 example
 insulate.createObject("myObj"); 
 insulate.createMethod("hello", myObj);
 myObj.hello = function(){console.log("hello world")}    
+</code></pre>
 
-insulate.createMember() will create an imutable member in an object (created with insulate)
-needs a name, object and optinal data of any type. 
+<p>To create immutable mebmers:</p>
+
+<pre><code>insulate.createMember() will create an imutable member in an object (created with insulate)
+needs a name, object and optinal value. 
 nested objects can be passed with dotted notaition - obj1.obj2.obj3 or as a named refference
 
 example 
 insulate.createObject("myObj");
 insulate.createMember("lirics", myObj, "lorem ipsum something, something");
 
-if you choose not to pass any data as  the third argument, you can set the member later
+if you choose not to pass any value as  the third argument, you can set the member later
 
 example
 insulate.createObject("myObj");
