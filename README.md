@@ -24,12 +24,18 @@ To create a global constant:
 	insulate.createConstant("MYCONST", "hello world")
 	If you choose not to pass the second argument, you can set the constant later.
 	example
-	insulate.createConstant("MYCONST"); MYCONST = "hello world".
+	insulate.createConstant("MYCONST"); MYCONST = "hello world";
+	Now MYCONST will always return "hello world".
+	Try to rest it
+	MYCONST = 123;
+	console.log(MYCONST); Still "hello world". 
+
+
 
 To create immutable objects:
 	
 	insulate.createObject() will create an object in global space or in any context if supplied
-	needs a name and optianoly context (an object). All members and methods of this the top level object will be immutable, as long as you create eaxh of them with insulate lybrary. 
+	needs a name and optianoly context (an object). All members and methods of this the top level object will be immutable, as long as you create eaxh of them with insulate library. 
 	Nested objects can be passed with dotted notaition - obj1.obj2.obj3 or as a named refference.
 
 	example 
@@ -48,7 +54,7 @@ To create immutable members:
 	insulate.createObject("myObj"); 
 	insulate.createMethod("hello", myObj, function(){console.log("hello world")})
 	
-	If you choose not to pass a function as the third argument, you can set the method later
+	If you choose not to pass a function as the third argument, you can set the method later.
 
 	example
 	insulate.createObject("myObj"); 
