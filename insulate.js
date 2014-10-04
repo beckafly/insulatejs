@@ -16,7 +16,7 @@
 	(function() {
 	    var cf = {};
 	    var validName = /^[$A-Z_][0-9A-Z_$]*$/i;
-
+	    var console = window.console;
 	 
 
 	    // main function creates objects
@@ -29,18 +29,27 @@
 	        }
 
 	        var localMYOBJ;
-	        Object.defineProperty(cnt, name, {
-	            get: function() {
-	                return localMYOBJ;
-	            },
-	            set: function(val) { 
-	            	if (cnt[name]){
-	            		console.warn("this proprty has already been set");
-	            		return null;
-	            	} 
-	               localMYOBJ = val; 
-	            }
-	        });
+	        try{
+		        Object.defineProperty(cnt, name, {
+
+		            get: function() {
+		                return localMYOBJ;
+		            },
+		            set: function(val) { 
+		            
+			            	if (cnt[name]){
+			            		console.warn("This proprty has already been set and will not be changed");
+			            		return null;
+			            	} 
+			               	localMYOBJ = val; 
+		       			 
+		            }
+		        });
+		   }catch(err){
+		   	console.warn(err.message);
+		   } finally {
+		   	return;
+		   }
 	    }
 
 
@@ -56,18 +65,25 @@
 		***************/
 	    
 	    cf.createConstant = function(name, contents) {
-
-	        if (typeof name !== "string") {
-	            throw "First argument needs to be constant name";
-	        } else if (!name.match(validName)) {
-	            throw "Name needs to be a valid javascript name";
-	        } else {
-	            createImtble(name);
-	            if (contents) {
-	            window[name] = contents;
-	        	}
-	        }
-
+		    try{
+		    	if(window[name] && typeof Object.getOwnPropertyDescriptor(window, name).set !== "function") {
+		    		throw "This variable has been decleard without insulate, please pick another name";
+		    	} else if (typeof name !== "string") {
+		            throw "First argument needs to be constant name";
+		        } else if (!name.match(validName)) {
+		            throw "Name needs to be a valid javascript name";
+		        } else {
+		            createImtble(name);
+		            if (contents) {
+		            window[name] = contents;
+		        	}
+		        }
+		    }catch(err){
+		    	console.warn(err);
+		    }
+		    finally {
+		    	return;
+		    }
 	    };
 
 		
@@ -84,14 +100,20 @@
 	    cf.createObject = function(name, context) {
 	        //console.log(context);
 	        context = context || window;
-	        if (typeof name !== "string") {
-	            throw "First argument needs to be object name";
-	        } else if (!name.match(validName)) {
-	            throw "Name needs to be a valid javascript name";
-	        } else {
-	            createImtble(name, context);
-	            context[name] = {};
-	        }
+	        try {
+		        if (typeof name !== "string") {
+		            throw "First argument needs to be object name";
+		        } else if (!name.match(validName)) {
+		            throw "Name needs to be a valid javascript name";
+		        } else {
+		            createImtble(name, context);
+		            context[name] = {};
+		        }
+		    } catch(err)  {
+		    	console.warn(err);
+		    } finally {
+		    	return;
+		    }
 	    };
 
 	   
@@ -115,20 +137,27 @@
 
 	    cf.createMethod = function(name, context, contents) {
 
-	        if (typeof context !== "object") {
-	            throw "Second argument needs to be an object";
-	        } else if (contents && typeof contents !== "function") {
-	            throw "Third argument needs to be a function";
-	        } else if (typeof name !== "string") {
-	            throw "First argument needs to be Method name";
-	        } else if (!name.match(validName)) {
-	            throw "Name needs to be a valid javascript name";
-	        } else {
-	            createImtble(name, context);
-	            if(contents){
-	            	context[name] = contents;
-	            }
-	        }
+	       try{
+		        if (typeof context !== "object") {
+		            throw "Second argument needs to be an object";
+		        } else if (contents && typeof contents !== "function") {
+		            throw "Third argument needs to be a function";
+		        } else if (typeof name !== "string") {
+		            throw "First argument needs to be Method name";
+		        } else if (!name.match(validName)) {
+		            throw "Name needs to be a valid javascript name";
+		        } else {
+		            createImtble(name, context);
+		            if(contents){
+		            	context[name] = contents;
+		            }
+		        }
+	   	} catch(err) {
+	   		console.warn(err);
+	   	} finally {
+	   		return;
+	   	}
+
 	    };
 
 		/*************
@@ -150,26 +179,32 @@
 
 	    cf.createMember = function(name, context, contents) {
 
-	        if (typeof name !== "string") {
-	            throw "First argument needs to be member name";
-	        } else if (typeof context !== "object") {
-	            throw "Second argument needs to be an object";
-	        } else if (!name.match(validName)) {
-	            throw "Name needs to be a valid javascript name";
-	        } else if (typeof contents === "function") {
-	            throw "Member can not be a function";
-	        } else {
-	            createImtble(name, context);
-	            if (contents){
-	            context[name] = contents;
-	        	}
-	        }
-
+	    	try {
+		        if (typeof name !== "string") {
+		            throw "First argument needs to be member name";
+		        } else if (typeof context !== "object") {
+		            throw "Second argument needs to be an object";
+		        } else if (!name.match(validName)) {
+		            throw "Name needs to be a valid javascript name";
+		        } else if (typeof contents === "function") {
+		            throw "Member can not be a function";
+		        } else {
+		            createImtble(name, context);
+		            if (contents){
+		            context[name] = contents;
+		        	}
+		        }
+		    } catch(err){
+		    	console.warn(err);
+		    } finally {
+		    	return;
+		    }
 	    };
 
 
-	    createImtble("insulate", window);
-	    window.insulate = {};
+	    createImtble("insulate", window);	    
+	    var insulate=window.insulate = {};
+
 	    createImtble("createConstant", insulate);
 	    createImtble("createObject", insulate);
 	    createImtble("createMethod", insulate);

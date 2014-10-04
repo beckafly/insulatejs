@@ -31,7 +31,7 @@ To create a global constant:
 	MYCONST = 123;
 	console.log(MYCONST); Still "hello world". 
 	
-	IT IS IMPORTANT NOT TO DECLEARE YOUR CONSTANTS BEFORE YOU CREATE THEM WITH INSULATE, IF YOU DO, BEFORE RUNING INSULATE.CREATECONSTANT, IT WILL NOT BE IMMUTABLE!
+	It is important not to decleare your constants before you create them with insulate, if you do, before runing insulate.createConstant, insulate will ask you to pick a differend name!
 	
 	To create a constant in onother scope, use insulate.createMember()
 
