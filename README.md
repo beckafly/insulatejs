@@ -15,7 +15,8 @@ Library to create constants in and immutable objects, members and methods in jav
 	Insulate itself is created to be imitable by using it's createObject method. It can not be redefined. Try it.
 
 To use, include this script in your page.
-To turn on error messages in console, put insulate.logErrors = true; in your code;
+To turn on error messages in console, use insulate.logErrors();
+To turn  error messages  back off, insulate.muteErrors();
 
 To create a global constant:
 

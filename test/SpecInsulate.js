@@ -158,7 +158,7 @@ describe('Insulate methods functionalyty', function() {
 
  describe('Insulate loging on', function() {
  	beforeEach(function() {
- 		insulate.logErrors = true;
+ 		insulate.logErrors();
  	});
  it('should be defined in global', function() {
    

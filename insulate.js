@@ -21,7 +21,7 @@
 	 // to turn on error massages in console set insulate.logErrors = true; somwere in your code
 	 
 	 function logErr(error) {
-	 	if (insulate.logErrors){
+	 	if (insulate.log){
 	 		console.warn(error);
 	 	} else {
 	 		return;
@@ -209,9 +209,17 @@
 		    }
 	    };
 
+	    cf.logErrors = function(){
+	    	insulate.log = true;
+	    };
+
+	    cf.muteErrors = function(){
+	    	insulate.log = false;
+	    };
+
 
 	    createImtble("insulate", window);
-	    createImtble("LOGERRORS", insulate);
+	   
 
 	    var insulate=window.insulate = {};
 
@@ -224,7 +232,8 @@
 	    insulate.createObject = cf.createObject;
 	    insulate.createMethod = cf.createMethod;
 	    insulate.createMember = cf.createMember;
-	    insulate.logErrors = false;
+	    insulate.logErrors = cf.logErrors;
+	    insulate.log = false;
 
 
 	    
