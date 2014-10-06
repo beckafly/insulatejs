@@ -14,11 +14,19 @@
 
 
 	(function() {
+		
 	    var cf = {};
 	    var validName = /^[$A-Z_][0-9A-Z_$]*$/i;
 	    var console = window.console;
+	 // to turn on error massages in console set insulate.logErrors = true; somwere in your code
 	 
-
+	 function logErr(error) {
+	 	if (insulate.logErrors){
+	 		console.warn(error);
+	 	} else {
+	 		return;
+	 	}
+	}
 	    // main function creates objects
 	    function createImtble(name, context) {
 	    	var cnt;
@@ -38,7 +46,7 @@
 		            set: function(val) { 
 		            
 			            	if (cnt[name]){
-			            		console.warn("This proprty has already been set and will not be changed");
+			            		logErr("This proprty has already been set and will not be changed");
 			            		return null;
 			            	} 
 			               	localMYOBJ = val; 
@@ -46,7 +54,7 @@
 		            }
 		        });
 		   }catch(err){
-		   	console.warn(err.message);
+		   	logErr(err.message);
 		   } finally {
 		   	return;
 		   }
@@ -79,7 +87,7 @@
 		        	}
 		        }
 		    }catch(err){
-		    	console.warn(err);
+		    	logErr(err);
 		    }
 		    finally {
 		    	return;
@@ -110,7 +118,7 @@
 		            context[name] = {};
 		        }
 		    } catch(err)  {
-		    	console.warn(err);
+		    	logErr(err);
 		    } finally {
 		    	return;
 		    }
@@ -153,7 +161,7 @@
 		            }
 		        }
 	   	} catch(err) {
-	   		console.warn(err);
+	   		logErr(err);
 	   	} finally {
 	   		return;
 	   	}
@@ -195,14 +203,16 @@
 		        	}
 		        }
 		    } catch(err){
-		    	console.warn(err);
+		    	logErr(err);
 		    } finally {
 		    	return;
 		    }
 	    };
 
 
-	    createImtble("insulate", window);	    
+	    createImtble("insulate", window);
+	    createImtble("LOGERRORS", insulate);
+
 	    var insulate=window.insulate = {};
 
 	    createImtble("createConstant", insulate);
@@ -214,6 +224,7 @@
 	    insulate.createObject = cf.createObject;
 	    insulate.createMethod = cf.createMethod;
 	    insulate.createMember = cf.createMember;
+	    insulate.logErrors = false;
 
 
 	    
