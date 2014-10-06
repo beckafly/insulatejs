@@ -6,7 +6,7 @@
     "Alex Becker <byaxy@insulatejs.com>"
   ],
   "description": "Js libary to create constants and immutable objects/methods/members in ecma5",
-  "main": "insulate.js",
+  "main": "insulate.insulate.min.js",
   "keywords": [
     "Javascipt",
     "Constant",
