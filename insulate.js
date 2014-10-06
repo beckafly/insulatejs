@@ -19,11 +19,11 @@
 	    var validName = /^[$A-Z_][0-9A-Z_$]*$/i;
 	    var console = window.console;
 	    var log;
-	    var odp = clone(Object.defineProperty || null); // call function to clone Object.defineProperty in case it's fucked with later
+	    var odp = (Object.defineProperty) ? clone(Object.defineProperty) : null;  // call function to clone Object.defineProperty in case it's fucked with later
 
 	    // clone Object.defineProperty
 	    function clone(obj) {
-	        if (obj === null || typeof(obj) !== "object"){
+	        if (obj == null || typeof(obj) !== "object"){
 	            return obj;
 	        }
 
@@ -36,9 +36,11 @@
 	        }
 	        return temp;
 	    }
-	    // cf.Object.defineProperty = ;
 
-	    // to turn on error massages in console set insulate.logErrors = true; somwere in your code
+
+	 
+
+	    // to turn on error massages in console set insulate.logErrors() somwere in your code
 
 	    function logErr(error) {
 	        if (log) {
@@ -61,7 +63,7 @@
 	        }
 
 	        
-	        if (typeof odp !== null) {
+	        if (odp) {
 
 	            var localMYOBJ;
 	            try {
