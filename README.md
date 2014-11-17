@@ -29,6 +29,9 @@ To create a global constant:
 
     example  
     insulate.createConstant("MYCONST", "hello world");   
+    Try to rest it  
+    MYCONST = 123;
+    console.log(MYCONST); //will print out "hello world"! 
 
 If you choose not to pass the second argument, you can set the constant later.   
 
@@ -60,9 +63,9 @@ Nested objects can be passed with dotted notation - obj1.obj2.obj3 or as a named
     as a myObj member. Can also be done with insulate.createMember();.  
     Now try to reset either one:   
     myObj = "I am trying to hack you";   
-    console.log(myObj); //will  print out an oject!   
+    console.log(typeof myObj); //will print out an object!   
     myObj.myObjInner = "I am trying to hack you";   
-    console.log(myObj.myObjInner); //will still print out your object!  
+    console.log(typeof myObj.myObjInner); //will still print out an object!  
     
 	
 To create immutable methods:
@@ -73,7 +76,7 @@ Nested objects can be passed with dotted notation - obj1.obj2.obj3 or as a named
 
     example
     insulate.createObject("myObj"); // in case you have not created it before.
-    insulate.createMethod("hello", myObj, function(){console.log("")});  
+    insulate.createMethod("hello", myObj, function(){console.log("hello world")});  
     Let's try to reset it:  
     myObj.hello = function(){console.log("i'm trying to hack you")};  
     myObj.hello(); // will still print out "hello world"!
@@ -99,7 +102,7 @@ Nested objects can be passed with dotted notaition - obj1.obj2.obj3 or as a name
     insulate.createMember("lirics", myObj, "lorem ipsum something, something");   
     Let's try to reset it:  
     myObj.lirics = "i'm trying to hack you";  
-    console.log(myObj.lirics); // will still print out lorem ipsum something, something"!
+    console.log(myObj.lirics); // will still print out "lorem ipsum something, something"!
 
 
 
@@ -109,6 +112,6 @@ if you choose not to pass any value as  the third argument, you can set the memb
     insulate.createObject("myObj");
     insulate.createMember("lirics", myObj);
     myObj.lirics = "lorem ipsum something, something";  
-     Let's try to reset it:  
+    Let's try to reset it:  
     myObj.lirics = "i'm trying to hack you";  
-    console.log(myObj.lirics); // will still print out lorem ipsum something, something"!
+    console.log(myObj.lirics); // will still print out "lorem ipsum something, something"!
