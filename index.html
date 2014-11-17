@@ -63,6 +63,9 @@ To turn  error messages  back off, <code>insulate.muteErrors();</code></p>
 
 <pre><code>example  
 insulate.createConstant("MYCONST", "hello world");   
+Try to rest it  
+MYCONST = 123;
+console.log(MYCONST); //will print out "hello world"! 
 </code></pre>
 
 <p>If you choose not to pass the second argument, you can set the constant later.   </p>
@@ -95,9 +98,9 @@ insulate.createObject("myObjInner", myObj); will create a myObjInner object
 as a myObj member. Can also be done with insulate.createMember();.  
 Now try to reset either one:   
 myObj = "I am trying to hack you";   
-console.log(myObj); //will  print out an object!   
+console.log(typeof myObj); //will print out an object!   
 myObj.myObjInner = "I am trying to hack you";   
-console.log(myObj.myObjInner); //will still print out your object!  
+console.log(typeof myObj.myObjInner); //will still print out an object!  
 </code></pre>
 
 <p>To create immutable methods:</p>
@@ -108,7 +111,7 @@ Nested objects can be passed with dotted notation - obj1.obj2.obj3 or as a named
 
 <pre><code>example
 insulate.createObject("myObj"); // in case you have not created it before.
-insulate.createMethod("hello", myObj, function(){console.log("")});  
+insulate.createMethod("hello", myObj, function(){console.log("hello world")});  
 Let's try to reset it:  
 myObj.hello = function(){console.log("i'm trying to hack you")};  
 myObj.hello(); // will still print out "hello world"!
@@ -136,7 +139,7 @@ insulate.createObject("myObj"); // in case you have not created it before.
 insulate.createMember("lirics", myObj, "lorem ipsum something, something");   
 Let's try to reset it:  
 myObj.lirics = "i'm trying to hack you";  
-console.log(myObj.lirics); // will still print out lorem ipsum something, something"!
+console.log(myObj.lirics); // will still print out "lorem ipsum something, something"!
 </code></pre>
 
 <p>if you choose not to pass any value as  the third argument, you can set the member later  </p>
@@ -147,7 +150,7 @@ insulate.createMember("lirics", myObj);
 myObj.lirics = "lorem ipsum something, something";  
 Let's try to reset it:  
 myObj.lirics = "i'm trying to hack you";  
-console.log(myObj.lirics); // will still print out lorem ipsum something, something"!
+console.log(myObj.lirics); // will still print out "lorem ipsum something, something"!
 </code></pre>
         </section>
 
