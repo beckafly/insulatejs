@@ -52,30 +52,41 @@ All members and methods of this the top level object will be immutable, as long 
 each of them with insulate library.  
 Nested objects can be passed with dotted notation - obj1.obj2.obj3 or as a named reference.  
 
-
     example 
     insulate.createObject("myObj"); will create myObj in global namespace.   
     This should be used as a starting point. 
     Creating nested objects with insulate library will insure immutability.   
     insulate.createObject("myObjInner", myObj); will create a myObjInner object    
-    as a myObj member. Can also be done with insulate.createMember();.   
+    as a myObj member. Can also be done with insulate.createMember();.  
+    Now try to reset either one:   
+    myObj = "I am trying to hack you";   
+    console.log(myObj); //will  print out an oject!   
+    myObj.myObjInner = "I am trying to hack you";   
+    console.log(myObj.myObjInner); //will still print out your object!  
+    
 	
 To create immutable methods:
 
 `insulate.createMethod()` will create a immutable  method (if created in an object made with insulate utility) 
 needs a name, object and an optional function.    
 Nested objects can be passed with dotted notation - obj1.obj2.obj3 or as a named reference   
-	
+
     example
-    insulate.createObject("myObj"); 
-    insulate.createMethod("hello", myObj, function(){console.log("hello world")})  
+    insulate.createObject("myObj"); // in case you have not created it before.
+    insulate.createMethod("hello", myObj, function(){console.log("")});  
+    Let's try to reset it:  
+    myObj.hello = function(){console.log("i'm trying to hack you")};  
+    myObj.hello(); // will still print out "hello world"!
 
 If you choose not to pass a function as the third argument, you can set the method later.   
 
     example
-    insulate.createObject("myObj"); 
+    insulate.createObject("myObj"); // in case you have not created it before.
     insulate.createMethod("hello", myObj);
     myObj.hello = function(){console.log("hello world")};   
+    Let's try to reset it:  
+    myObj.hello = function(){console.log("i'm trying to hack you")};  
+    myObj.hello(); // will still print out "hello world"!
 	
 To create immutable members:
 
@@ -84,8 +95,11 @@ Needs a name, object and optional value.
 Nested objects can be passed with dotted notaition - obj1.obj2.obj3 or as a named reference
 
     example 
-    insulate.createObject("myObj");
-    insulate.createMember("lirics", myObj, "lorem ipsum something, something");
+    insulate.createObject("myObj"); // in case you have not created it before.
+    insulate.createMember("lirics", myObj, "lorem ipsum something, something");   
+    Let's try to reset it:  
+    myObj.lirics = "i'm trying to hack you";  
+    console.log(myObj.lirics); // will still print out lorem ipsum something, something"!
 
 
 
@@ -94,4 +108,7 @@ if you choose not to pass any value as  the third argument, you can set the memb
     example
     insulate.createObject("myObj");
     insulate.createMember("lirics", myObj);
-    myObj.lirics = "lorem ipsum something, something";
+    myObj.lirics = "lorem ipsum something, something";  
+     Let's try to reset it:  
+    myObj.lirics = "i'm trying to hack you";  
+    console.log(myObj.lirics); // will still print out lorem ipsum something, something"!
