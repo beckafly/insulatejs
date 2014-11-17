@@ -29,7 +29,7 @@
       <div class="inner clearfix">
         <section id="main-content">
           <h1>
-<a name="insulatejs" class="anchor" href="#insulatejs"><span class="octicon octicon-link"></span></a>insulatejs</h1>
+<a id="insulatejs" class="anchor" href="#insulatejs" aria-hidden="true"><span class="octicon octicon-link"></span></a>insulatejs</h1>
 
 <h1></h1>
 
@@ -38,7 +38,7 @@
 </blockquote>
 
 <h3>
-<a name="insulatejs-v01" class="anchor" href="#insulatejs-v01"><span class="octicon octicon-link"></span></a>insulatejs v0.1</h3>
+<a id="insulatejs-v01" class="anchor" href="#insulatejs-v01" aria-hidden="true"><span class="octicon octicon-link"></span></a>insulatejs v0.1</h3>
 
 <p>created by Alex Becker
 <a href="mailto:byaxy@insulatejs.com">byaxy@insulatejs.com</a>    </p>
@@ -72,7 +72,7 @@ insulate.createConstant("MYCONST"); MYCONST = "hello world";
 Now MYCONST will always return "hello world".  
 Try to rest it  
 MYCONST = 123;
-console.log(MYCONST); Still "hello world".    
+console.log(MYCONST); //will print out "hello world"!    
 </code></pre>
 
 <p>It is important not to declare your constants before you create them with insulate, if you do, before ruining <code>insulate.createConstant()</code>, insulate will ask you to pick a different name!</p>
@@ -89,10 +89,15 @@ Nested objects can be passed with dotted notation - obj1.obj2.obj3 or as a named
 
 <pre><code>example 
 insulate.createObject("myObj"); will create myObj in global namespace.   
-This should be used as a starting point.    
-Creating nested objects with insulate library will insure immutability.     
+This should be used as a starting point. 
+Creating nested objects with insulate library will insure immutability.   
 insulate.createObject("myObjInner", myObj); will create a myObjInner object    
-as a myObj member. Can also be done with insulate.createMember();.   
+as a myObj member. Can also be done with insulate.createMember();.  
+Now try to reset either one:   
+myObj = "I am trying to hack you";   
+console.log(myObj); //will  print out an object!   
+myObj.myObjInner = "I am trying to hack you";   
+console.log(myObj.myObjInner); //will still print out your object!  
 </code></pre>
 
 <p>To create immutable methods:</p>
@@ -102,16 +107,22 @@ needs a name, object and an optional function.<br>
 Nested objects can be passed with dotted notation - obj1.obj2.obj3 or as a named reference   </p>
 
 <pre><code>example
-insulate.createObject("myObj"); 
-insulate.createMethod("hello", myObj, function(){console.log("hello world")})  
+insulate.createObject("myObj"); // in case you have not created it before.
+insulate.createMethod("hello", myObj, function(){console.log("")});  
+Let's try to reset it:  
+myObj.hello = function(){console.log("i'm trying to hack you")};  
+myObj.hello(); // will still print out "hello world"!
 </code></pre>
 
 <p>If you choose not to pass a function as the third argument, you can set the method later.   </p>
 
 <pre><code>example
-insulate.createObject("myObj"); 
+insulate.createObject("myObj"); // in case you have not created it before.
 insulate.createMethod("hello", myObj);
 myObj.hello = function(){console.log("hello world")};   
+Let's try to reset it:  
+myObj.hello = function(){console.log("i'm trying to hack you")};  
+myObj.hello(); // will still print out "hello world"!
 </code></pre>
 
 <p>To create immutable members:</p>
@@ -121,8 +132,11 @@ Needs a name, object and optional value.<br>
 Nested objects can be passed with dotted notaition - obj1.obj2.obj3 or as a named reference</p>
 
 <pre><code>example 
-insulate.createObject("myObj");
-insulate.createMember("lirics", myObj, "lorem ipsum something, something");
+insulate.createObject("myObj"); // in case you have not created it before.
+insulate.createMember("lirics", myObj, "lorem ipsum something, something");   
+Let's try to reset it:  
+myObj.lirics = "i'm trying to hack you";  
+console.log(myObj.lirics); // will still print out lorem ipsum something, something"!
 </code></pre>
 
 <p>if you choose not to pass any value as  the third argument, you can set the member later  </p>
@@ -130,7 +144,10 @@ insulate.createMember("lirics", myObj, "lorem ipsum something, something");
 <pre><code>example
 insulate.createObject("myObj");
 insulate.createMember("lirics", myObj);
-myObj.lirics = "lorem ipsum something, something";
+myObj.lirics = "lorem ipsum something, something";  
+Let's try to reset it:  
+myObj.lirics = "i'm trying to hack you";  
+console.log(myObj.lirics); // will still print out lorem ipsum something, something"!
 </code></pre>
         </section>
 
