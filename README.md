@@ -37,7 +37,7 @@ If you choose not to pass the second argument, you can set the constant later.
     Now MYCONST will always return "hello world".  
     Try to rest it  
     MYCONST = 123;
-    console.log(MYCONST); Still "hello world".    
+    console.log(MYCONST); //will print out "hello world"!    
 
 	
 It is important not to declare your constants before you create them with insulate, if you do, before ruining `insulate.createConstant()`, insulate will ask you to pick a different name!
