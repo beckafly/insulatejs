@@ -29,16 +29,16 @@ To create a global constant:
 
     example  
     insulate.createConstant("MYCONST", "hello world");   
-    Try to rest it  
+    Try to reset it  
     MYCONST = 123;
-    console.log(MYCONST); //will print out "hello world"! 
+    console.log(MYCONST); //will still print out "hello world"! 
 
 If you choose not to pass the second argument, you can set the constant later.   
 
     example
     insulate.createConstant("MYCONST"); MYCONST = "hello world";   
     Now MYCONST will always return "hello world".  
-    Try to rest it  
+    Try to reset it  
     MYCONST = 123;
     console.log(MYCONST); //will print out "hello world"!    
 
