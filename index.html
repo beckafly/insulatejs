@@ -32,13 +32,12 @@
 <a id="insulatejs-v01" class="anchor" href="#insulatejs-v01" aria-hidden="true"><span class="octicon octicon-link"></span></a>insulatejs v0.1</h1>
 
 <blockquote>
-<p>Library to create constants, immutable objects, members and methods in javascript<br>
-<em>Created by Alex Becker <a href="mailto:byaxy@insulatejs.com">byaxy@insulatejs.com</a></em><br>
-<em><em>also available on bower.</em> <code>bower install insulatejs</code></em> </p>
+<p>Library to create constants, immutable objects, members and methods in javascript (ecma5)       </p>
 </blockquote>
 
-<p>insulate.js is a library to create indestructible and unchangeable objects, members and methods in ecma5 
-javascript (all modern browsers and ie9 and up). </p>
+<p><em>Created by Alex Becker <a href="mailto:byaxy@insulatejs.com">byaxy@insulatejs.com</a>.</em><br>
+<em><em>also available on bower.</em> <code>bower install insulatejs</code>.</em>
+<em>(all modern browsers that support <code>Object.defineProperty()</code>).</em> </p>
 
 <p>One of the main reasons for this library, are some security concerns with malicious javascript being able to override your methods and variables, thus making your code potentially dangerous. 
 With insulate you can address some of these concerns, or, simply  protect the intended functionality of your code from being accidentally overwritten. 
@@ -56,9 +55,8 @@ In fact, after you created an object with insulate and used insulate to add meth
 Every thing that you create with insulate can not be redefined!
 Insulate itself is created to be imitable by using it's <code>createObject()</code> method. It can not be redefined. Try it.</p>
 
-<p>To use, include this script in your page.<br>
-To turn on error messages in console, use <code>insulate.logErrors();</code>, highly recommended to do so, when using for a first time.<br>
-To turn  error messages  back off, <code>insulate.muteErrors();</code></p>
+<p>To use, include insulate.js script in head of your page.<br>
+To turn on error messages in console, use <code>insulate.logErrors();</code>, highly recommended to do so, when using for a first time. To turn  error messages  back off, <code>insulate.muteErrors();</code></p>
 
 <p>To create a global constant:<br>
 <code>insulate.createConstant()</code> will create a constant in a global namespace. Needs a name and optional value to set the constant   </p>
