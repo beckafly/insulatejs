@@ -1,17 +1,24 @@
 # insulatejs
-==========
 
->Library to create constants, immutable objects, members and methods in javascript    
-
+>Library to create constants, immutable objects, members and methods in javascript   
 ### insulatejs v0.1   
+created by Alex Becker byaxy@insulatejs.com    
+*_also available on bower._ `bower install insulatejs`* 
 
-created by Alex Becker
-byaxy@insulatejs.com    
+
+insulate.js is a library to create indestructible and unchangeable objects, members and methods in ecma5 
+javascript (all modern browsers and ie9 and up). 
+
+One of the main reasons for this library, are some security concerns with malicious javascript being able to override your methods and variables, thus making your code potentially dangerous. 
+With insulate you can address some of these concerns, or, simply  protect the intended functionality of your code from being accidentally overwritten. 
+Also, you can even make safe global objects and constants. 
+
+Another reason I've created this library were web components. Their amazing ability to encapsulate all that they need to function, html, css and js. Unfortunately they are still in draft stage. With the ability of insulatejs library to create immutable objects, you can insulate your code from any interference. You can make an immutable method for you “component’s” js,  to  watch for  dynamic markup and css changes in a particular  fragment of html  and have it immediately return it to the state  that you intended, preserving the look, feel and functionality of your component. Though insulatejs is not a component polyfil, but it can be used to make something with a similar functionality, as one of possible uses.
+
+How ever, you can use it just to set constants or protected objects anywhere in your code. 
+It's a thin library and there are many possible uses.
+
  
-_also available on bower._ `bower install insulatejs`   
-  
-insulate.js is a library to create indestructible and unchangeable objects, members and methods in ecma5 javascript (all modern browsers and ie9 and up).  
-
 By running `insulate.createObject()` you can create an object in global namespace that can not be reset, redefined or in anyway messed with.  
 
 Further, you can add members and methods  with `insulate.createMember()` and `insulate.createMethod()` that will not be vulnerable to any unwanted changes initiated by other scripts. By keeping your important functions immutable you can improve security   
@@ -115,3 +122,6 @@ if you choose not to pass any value as  the third argument, you can set the memb
     Let's try to reset it:  
     myObj.lirics = "i'm trying to hack you";  
     console.log(myObj.lirics); // will still print out "lorem ipsum something, something"!
+
+*Your feedback is quite welcome!*
+byaxy@insulatejs.com
