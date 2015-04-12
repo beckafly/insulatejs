@@ -43,9 +43,18 @@
 <p>created by Alex Becker
 <a href="mailto:byaxy@insulatejs.com">byaxy@insulatejs.com</a>    </p>
 
-<p><em>also available on bower.</em> <code>bower install insulatejs</code>   </p>
+<p><em>also available on bower.</em> <code>bower install insulatejs</code><br>
+insulate.js is a library to create indestructible and unchangeable objects, members and methods in ecma5 
+javascript (all modern browsers and ie9 and up). </p>
 
-<p>insulate.js is a library to create indestructible and unchangeable objects, members and methods in ecma5 javascript (all modern browsers and ie9 and up).  </p>
+<p>One of the main reasons for this library are some security concerns with malicious javascript being able to override your methods and variables, thus making your code potentially dangerous . 
+Also, you can even make safe global objects and constants.
+Or, simply  protect the intended functionality of your code from being accidentally overwritten.  </p>
+
+<p>Another reason I've created this library were web components. Their amazing ability to encapsulate all that they need to function, html, css and js. Unfortunately they are still in draft stage. With the ability of insulatejs library to create immutable objects, you can insulate your code from any interference. You can make an immutable method for you “component’s” js,  to  watch for  dynamic markup and css  changes in a particular  fragment of html  and have it immediately return it to the state  that you intended, preserving the look, feel and functionality of your component. Though insulatejs is not a component polyfil, but it can be used to make something with a similar functionality, as one of possible uses.</p>
+
+<p>How ever, you can use it just to set constants or protected objects anywhere in your code. 
+It's a thin library and there are many possible uses.</p>
 
 <p>By running <code>insulate.createObject()</code> you can create an object in global namespace that can not be reset, redefined or in anyway messed with.  </p>
 
