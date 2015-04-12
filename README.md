@@ -1,13 +1,10 @@
-# insulatejs
+# insulatejs v0.1
 
->Library to create constants, immutable objects, members and methods in javascript   
-### insulatejs v0.1   
-created by Alex Becker byaxy@insulatejs.com    
-*_also available on bower._ `bower install insulatejs`* 
+>Library to create constants, immutable objects, members and methods in javascript (ecma5)       
 
-
-insulate.js is a library to create indestructible and unchangeable objects, members and methods in ecma5 
-javascript (all modern browsers and ie9 and up). 
+*Created by Alex Becker byaxy@insulatejs.com.*    
+*_also available on bower._ `bower install insulatejs`.*
+*(all modern browsers that support `Object.defineProperty()`).* 
 
 One of the main reasons for this library, are some security concerns with malicious javascript being able to override your methods and variables, thus making your code potentially dangerous. 
 With insulate you can address some of these concerns, or, simply  protect the intended functionality of your code from being accidentally overwritten. 
@@ -27,9 +24,8 @@ Every thing that you create with insulate can not be redefined!
 Insulate itself is created to be imitable by using it's `createObject()` method. It can not be redefined. Try it.
 
 
-To use, include this script in your page.   
-To turn on error messages in console, use `insulate.logErrors();`, highly recommended to do so, when using for a first time.   
-To turn  error messages  back off, `insulate.muteErrors();`
+To use, include insulate.js script in head of your page.   
+To turn on error messages in console, use `insulate.logErrors();`, highly recommended to do so, when using for a first time. To turn  error messages  back off, `insulate.muteErrors();`
 
 To create a global constant:   
 `insulate.createConstant()` will create a constant in a global namespace. Needs a name and optional value to set the constant   
