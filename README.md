@@ -1,16 +1,16 @@
 # insulatejs v0.1
 
->Library to create constants, immutable objects, members and methods in javascript (ecma5)       
+>Library to create constants, immutable objects, members and methods in javascript (constants polyfil for ecma5)  
 
 *Created by Alex Becker byaxy@insulatejs.com.*    
 *_also available on bower._ `bower install insulatejs`.*
-*(all modern browsers that support `Object.defineProperty()`).* 
+
 
 One of the main reasons for this library, are some security concerns with malicious javascript being able to override your methods and variables, thus making your code potentially dangerous. 
 With insulate you can address some of these concerns, or, simply  protect the intended functionality of your code from being accidentally overwritten. 
 Also, you can even make safe global objects and constants. 
 
-Another reason I've created this library were web components. Their amazing ability to encapsulate all that they need to function, html, css and js. Unfortunately they are still in draft stage. With the ability of insulatejs library to create immutable objects, you can insulate your code from any interference. You can make an immutable method for you “component’s” js,  to  watch for  dynamic markup and css changes in a particular  fragment of html  and have it immediately return it to the state  that you intended, preserving the look, feel and functionality of your component. Though insulatejs is not a component polyfil, but it can be used to make something with a similar functionality, as one of possible uses.
+Another reason I've created this library were web components. Their amazing ability to encapsulate all that they need to function, html, css and js. Unfortunately they are still in draft stage. With the ability of insulatejs library to create immutable objects, you can insulate your code from any interference. You can make an immutable methods and properties for you “component’s” js. Though insulatejs is not a component polyfil, but it can be used to make something with a similar functionality, as one of possible uses.
 
 How ever, you can use it just to set constants or protected objects anywhere in your code. 
 It's a thin library and there are many possible uses.
@@ -117,7 +117,10 @@ if you choose not to pass any value as  the third argument, you can set the memb
     myObj.lirics = "lorem ipsum something, something";  
     Let's try to reset it:  
     myObj.lirics = "i'm trying to hack you";  
-    console.log(myObj.lirics); // will still print out "lorem ipsum something, something"!
+    console.log(myObj.lirics); // will still print out "lorem ipsum something, something"!    
+    
+    
+    *(all modern browsers that support `Object.defineProperty()`).*    
 
-*Your feedback is quite welcome!*
+*Your feedback is quite welcome!*  
 byaxy@insulatejs.com
