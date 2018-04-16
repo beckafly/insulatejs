@@ -1,0 +1,8 @@
+title: Insulatejs
+description: Library to create constants in and immutable objects, members and methods in javascript
+google_analytics: UA-55363610-1
+show_downloads: true
+theme: jekyll-theme-architect
+
+gems:
+  - jekyll-mentions
