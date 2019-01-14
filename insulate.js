@@ -1,8 +1,8 @@
 	/*************************
-	insulate.js v0.1
+	insulate.js v1.2
 	created by Alex Becker
 	byaxy@insulatejs.com
-	insulate.js is a library to create indestructible and unchangeable objects, members and methods in ecma5 javascript (all modern browsers and ie9 and up).
+	insulate.js is a library to create indestructible and unchangeable objects including the parent objects, members and methods in ecma5 javascript (all modern browsers and ie9 and up).
 	By running insulate.createObject() you can create an object in global namespace that can not be reset, redefined or in anyway messed with.
 	Further, you can add members and methods  with insulate.createMember() and insulate.createMethod() that will not be vulnerable to any unwanted	changes
 	initiated by other scripts. By keeping your important functions immutable you can improve security
@@ -19,23 +19,7 @@
 	    var validName = /^[$A-Z_][0-9A-Z_$]*$/i;
 	    var console = window.console;
 	    var log;
-	    var odp = (Object.defineProperty) ? clone(Object.defineProperty) : null;  // call function to clone Object.defineProperty in case it's fucked with later
-
-	    // clone Object.defineProperty
-	    function clone(obj) {
-	        if (obj == null || typeof(obj) !== "object"){
-	            return obj;
-	        }
-
-	        var temp = obj.constructor(); // changed
-
-	        for (var key in obj) {
-	            if (obj.hasOwnProperty(key)) {
-	                temp[key] = clone(obj[key]);
-	            }
-	        }
-	        return temp;
-	    }
+		var odp = Object.defineProperty;
 
 
 	 

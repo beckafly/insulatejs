@@ -1,6 +1,6 @@
-# insulatejs v0.1
+# insulatejs v1.2
 
->Library to create constants, immutable objects, members and methods in javascript (constants polyfil for ecma5)  
+>Library to create constants, immutable objects, including the parent objects, members and methods in javascript (constants polyfil for ecma5)  
 
 *Created by Alex Becker byaxy@insulatejs.com.*    
 *_also available on bower._ `bower install insulatejs`.*
