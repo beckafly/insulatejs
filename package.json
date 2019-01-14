@@ -1,6 +1,6 @@
 {
   "name": "insulatejs",
-  "version": "1.2",
+  "version": "1.2.0",
   "description": "JS library to create constants and immutable objects/members/methods",
   "main": "insulate.js",
   "directories": {
