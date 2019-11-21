@@ -19,7 +19,23 @@
 	    var validName = /^[$A-Z_][0-9A-Z_$]*$/i;
 	    var console = window.console;
 	    var log;
-		var odp = Object.defineProperty;
+	    var odp = (Object.defineProperty) ? clone(Object.defineProperty) : null;  // call function to clone Object.defineProperty in case it's fucked with later
+
+	    // clone Object.defineProperty
+	    function clone(obj) {
+	        if (obj == null || typeof(obj) !== "object"){
+	            return obj;
+	        }
+
+	        var temp = obj.constructor(); // changed
+
+	        for (var key in obj) {
+	            if (obj.hasOwnProperty(key)) {
+	                temp[key] = clone(obj[key]);
+	            }
+	        }
+	        return temp;
+	    }
 
 
 	 
@@ -240,7 +256,7 @@
 
 
 
-	    // create inutable insulate onject and methods
+	    // create imutable insulate onject and methods
 
 	    createImtble("insulate", window);
 	    var insulate = window.insulate = {};

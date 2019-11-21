@@ -172,7 +172,7 @@
  });
 
 
-describe('insulate hack attampt', function() {
+describe('insulate hack attempt', function() {
 	beforeEach(function() {
 		Object.defineProperty = undefined;
 	});

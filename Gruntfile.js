@@ -3,7 +3,7 @@ module.exports = function(grunt) {
     // Project configuration.
     grunt.initConfig({
         jasmine: {
-            src: 'insulate.js',
+            src: 'src/insulate.js',
             options: {
                 specs: 'test/SpecInsulate.js'
             }
@@ -13,8 +13,8 @@ module.exports = function(grunt) {
                 banner: '/*! insulate.js <%= grunt.template.today("yyyy-mm-dd") %> */\n'
             },
             build: {
-                src: 'insulate.js',
-                dest: 'insulate.min.js'
+                src: 'src/insulate.js',
+                dest: 'dist/insulate.min.js'
             }
         }
     });
